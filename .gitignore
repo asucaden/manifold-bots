@@ -1,2 +1,8 @@
 venv/
 .env
+
+persistence/
+
+__pycache__/
+*.pyc
+*.pyo

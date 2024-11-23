@@ -111,7 +111,7 @@ def place_bet(contract_id, outcome, amount=1):
 
     # API endpoint and headers
     url = f"{BASE_URL}/bet"
-    headers = {"Authorization": f"Bearer {API_KEY}"}
+    headers = {"Authorization": f"Key {API_KEY}"}
 
     # Payload for the API request
     payload = {"contractId": contract_id, "outcome": outcome, "amount": amount}

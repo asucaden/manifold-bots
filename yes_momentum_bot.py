@@ -46,14 +46,17 @@ if __name__ == "__main__":
         )
 
         # filter to markets i have not yet bet on
-        markets_already_bet_on = {
-            market["id"]: market for market in yes_db.all() if "id" in market
+        market_ids_already_bet_on = {
+            bet["contractId"]
+            for bet in yes_db.all()
+            if "contractId" in bet  # contractId is same as marketId
         }
-        if markets_already_bet_on:
+
+        if market_ids_already_bet_on:
             markets = [
                 market
                 for market in markets
-                if market["id"] not in markets_already_bet_on
+                if market["id"] not in market_ids_already_bet_on
             ]
         print(
             "Length after filtering to only include markets not bet on yet",
@@ -63,7 +66,7 @@ if __name__ == "__main__":
         # bet on these and persist the results
         bet_counter = 0
         for market in markets:
-            if len(markets_already_bet_on) >= 200:
+            if len(market_ids_already_bet_on) + bet_counter >= 200:
                 break  # don't want to go overboard, for now!
             if market["id"]:
                 bet = place_bet(market["id"], "YES", 5)
