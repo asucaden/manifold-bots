@@ -87,6 +87,7 @@ def paginated_and_filtered_fetch(num_markets_to_fetch=10_000, page_size=1000):
                 for market in markets
                 if market.get("totalLiquidity", 0) > 600
                 and not market.get("isResolved", True)
+                and market.get("token", "neither") == "MANA"
             ]
             fetched_markets.extend(markets)
 
