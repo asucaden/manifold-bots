@@ -1,9 +1,13 @@
-import requests
-from tinydb import Query, TinyDB
+from datetime import datetime
+
+from tinydb import TinyDB
 
 from fetch import paginated_and_filtered_fetch, place_bet
 
 if __name__ == "__main__":
+    print("\n\nRunning script at: ")
+    print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+
     yes_db = TinyDB("persistence/yes_momentum_bets_db.json")
     markets_db = TinyDB("persistence/markets_db.json")
 

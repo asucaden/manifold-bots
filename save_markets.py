@@ -1,9 +1,14 @@
-from tinydb import Query, TinyDB
+from datetime import datetime
+
+from tinydb import TinyDB
 
 from db import upsert_objects
 from fetch import paginated_and_filtered_fetch
 
 if __name__ == "__main__":
+    print("\n\nRunning script at: ")
+    print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+
     db = TinyDB("persistence/markets_db.json")
     markets = paginated_and_filtered_fetch()
 

@@ -6,3 +6,6 @@ persistence/
 __pycache__/
 *.pyc
 *.pyo
+
+logs/
+*.log
