@@ -58,7 +58,7 @@ def search_markets(
         return None
 
 
-def paginated_and_filtered_fetch(num_markets_to_fetch=10_000, page_size=1000):
+def paginated_and_filtered_fetch(num_markets_to_fetch=30_000, page_size=1000):
     page_size = min(page_size, num_markets_to_fetch)
     fetched_markets = []
 
